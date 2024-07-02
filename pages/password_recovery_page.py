@@ -1,8 +1,6 @@
-import allure
 from pages.base_page import BasePage
 from locators import Locators
 from helpers import *
-import data
 
 
 class PasswordRecoveryPage(BasePage):
@@ -11,17 +9,6 @@ class PasswordRecoveryPage(BasePage):
         super().__init__(driver)
         self.driver = driver
 
-    @allure.step("Открыть главную страницу")
-    def open_main_page(self):
-        self.open_page(data.MAIN_PAGE_URL)
-
-    @allure.step("Войти в ЛК")
-    def click_user_profile(self):
-        self.find_element_click(Locators.PROFILE_BUTTON)
-
-    @allure.step("Ожидание скрытия элемента")
-    def wait_for_invisibility_preloader(self):
-        self.wait_for_invisibility(Locators.PRELOADER_ANIMATION)
 
     @allure.step("Кликнуть Восстановить пароль")
     def click_password_recovery(self):
@@ -50,8 +37,8 @@ class PasswordRecoveryPage(BasePage):
         return element
 
     @allure.step("Получить атрибут подсветки")
-    def get_elements_attribute(self, locator):
-        element = self.find_element(locator).get_attribute('type')
+    def get_elements_attribute(self):
+        element = self.find_element(Locators.RESTORE_PASS_UNVISIBLE).get_attribute('type')
         return element
 
     @allure.step("Кликнуть иконку видимости")

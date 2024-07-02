@@ -9,7 +9,7 @@ class TestUserProfile:
         user_profile.open_main_page()
         user_profile.wait_for_invisibility_preloader()
         user_profile.click_user_profile()
-        assert driver.current_url == data.LOGIN_PAGE_URL
+        assert user_profile.get_current_url() == data.LOGIN_PAGE_URL
 
     @allure.title("Переход в раздел «История заказов»")
     @allure.description("Корректное отображение раздела при переходе")
@@ -22,7 +22,7 @@ class TestUserProfile:
         user_profile.wait_for_invisibility_preloader()
         user_profile.click_user_profile()
         user_profile.click_orders_history()
-        assert driver.current_url == data.ORDER_HISTORY_PAGE_URL
+        assert user_profile.get_current_url() == data.ORDER_HISTORY_PAGE_URL
 
     @allure.title("Выход из аккаунта")
     @allure.description("При выходе из аккаунта осуществляется переход на страницу логина")
@@ -40,4 +40,4 @@ class TestUserProfile:
         user_profile.user_profile_logout()
         user_profile.wait_for_invisibility_preloader()
         user_profile.wait_for_visibility_login()
-        assert driver.current_url == data.LOGIN_PAGE_URL
+        assert user_profile.get_current_url() == data.LOGIN_PAGE_URL

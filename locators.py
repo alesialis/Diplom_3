@@ -36,45 +36,44 @@ class Locators:
     # кнопка Лента заказов
     ORDER_FEED_BUTTON = (By.XPATH, "//p[text()='Лента Заказов']")
     # хэдер Ленты заказов
-    ORDER_FEED_HEADER_TEXT = (By.XPATH, "//div/h1[text()='Лента заказов']")
+    ORDER_FEED_HEADER_TEXT = (By.XPATH, "//*[text()='Лента заказов']")
     # хэдер Конструктора
-    ORDER_CONSTRUCTOR_HEADER_TEXT = (By.XPATH, "//h1[text()='Соберите бургер']")
+    ORDER_CONSTRUCTOR_HEADER_TEXT = (By.XPATH, "//*[text()='Соберите бургер']")
     # булочка для теста
     CRATOR_BUN = (By.XPATH, "//img[@alt='Краторная булка N-200i']")
     # текст - детали ингредиента
-    INGREDIENT_DETAILS = (By.XPATH, "//h2[text()='Детали ингредиента']")
+    INGREDIENT_DETAILS = (By.XPATH, "//*[text()='Детали ингредиента']")
     # текст - название ингредиента
-    INGREDIENT_NAME = (By.XPATH, "//div/p[text()='Краторная булка N-200i']")
+    INGREDIENT_NAME = (By.XPATH, "//*[text()='Краторная булка N-200i']")
     # скрыть ингредиент
-    INGREDIENT_POP_UP_CLOSE = (By.XPATH, "//div/section[1]/div[1]/button")
+    INGREDIENT_POP_UP_CLOSE = (By.XPATH, "//button[contains(@class, 'Modal_modal__close_modified__3V5XS') and contains(@class, 'Modal_modal__close__TnseK')]")
     # контекстное окно
     INGREDIENT_CONTEXT_WINDOW = (By.XPATH, '//div[@class="Modal_modal__contentBox__sCy8X pt-10 pb-15"]')
     # корзина
-    TARGET_BASKET = (By.XPATH, "//div/main/section[2]/ul/li[1]")
+    TARGET_BASKET = (By.XPATH, "//li[contains(@class, 'BurgerConstructor_basket__listItem__aWMu1') and contains(@class, 'mr-4')]")
     # счетчик ингредиента
-    INGREDIENT_TOTAL_NUMBER = (By.XPATH, "//ul[1]/a[2]/div[1]/p")
+    INGREDIENT_TOTAL_NUMBER = (By.XPATH, "//p[contains(@class, 'counter_counter__num__3nue1')]")
     # текст идентификатора заказа
     ORDER_CREATED_TEXT = (By.XPATH, "//p[text()='идентификатор заказа']")
     # кнопка создать заказ
     CREATE_ORDER_BUTTON = (By.XPATH, "//button[text()='Оформить заказ']")
-    ORDER_CONTAINER = (By.XPATH, '//*[@id="root"]/div/section/div[1]')
     # верхний заказ в ленте
-    TOP_ORDER_IN_FEED = (By.XPATH, "//main/div/div/ul/li[1]")
+    TOP_ORDER_IN_FEED = (By.XPATH, "//li[contains(@class,'OrderHistory_listItem__2x95r')][1]")
     # окно с деталями заказа
     ORDER_DETAILS_WINDOW_FEED = (By.XPATH, "//div[@class='Modal_orderBox__1xWdi Modal_modal__contentBox__sCy8X p-10']")
     # номер заказа в истории
-    ORDER_NUMBER_HISTORY = (By.XPATH, '//*[@id="root"]/div/main/div/div/div/ul/li[1]/a/div[1]/p[1]')
+    ORDER_NUMBER_HISTORY = (By.XPATH, "//div[contains(@class, 'OrderHistory_textBox__3lgbs')]//p[@class='text text_type_digits-default']")
     # кнопка закрыть заказ
-    CLOSE_ORDER = (By.XPATH, "//div/section/div[1]/button")
+    CLOSE_ORDER = (By.XPATH, "//button[contains(@class, 'Modal_modal__close_modified__3V5XS') and contains(@class, 'Modal_modal__close__TnseK')]")
     # номер заказа в ленте
-    ORDER_FEED_NUMBER = (By.XPATH, "//li[1]/a/div[1]/p[1]")
+    ORDER_FEED_NUMBER = (By.XPATH, "//p[contains(@class, 'text text_type_digits')]")
     # заказы - за все время
-    ALL_TIME_ORDERS_NUMBER = (By.XPATH, "//div/div[2]/p[2][@class='OrderFeed_number__2MbrQ text text_type_digits-large']")
+    ALL_TIME_ORDERS_NUMBER = (By.XPATH, "//p[@class='OrderFeed_number__2MbrQ text text_type_digits-large']")
     # заказы - сегодня
-    TODAY_ORDERS_NUMBER = (By.XPATH, "//div[3]/p[@class='OrderFeed_number__2MbrQ text text_type_digits-large']")
+    TODAY_ORDERS_NUMBER = (By.XPATH, "//p[contains(@class, 'OrderFeed_number__2MbrQ') and contains(@class, 'text_type_digits-large')]")
     # заказы - в работе
-    ORDER_IN_PROGRESS = (By.XPATH, "//div/div[1]/div[1]/div[1]/ul[2]/li[1][@class='text text_type_digits-default mb-2']")
+    ORDER_IN_PROGRESS = (By.XPATH, "//li[contains(@class, 'text text_type_digits-default') and contains(@class, 'mb-2')]")
 
-    PRELOADER_ANIMATION = (By.XPATH, '//*[@id="root"]/div/div/img')
-    LOADING_HISTORY = (By.XPATH, "//div/main/div/div/div[text()='Загрузка...']")
-    MODAL_OVERLAY = (By.XPATH, '//div/div[@class="Modal_modal_overlay__x2ZCr"]')
+    PRELOADER_ANIMATION = (By.XPATH, "//img[contains(@class, 'Modal_modal__loading__3534A')]")
+    LOADING_HISTORY = (By.XPATH, "//*[text()='Загрузка...']")
+    MODAL_OVERLAY = (By.XPATH, "//*[contains(@class, 'Modal_modal_overlay__x2ZCr')]")

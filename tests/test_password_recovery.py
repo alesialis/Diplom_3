@@ -11,7 +11,7 @@ class TestPasswordRecovery:
         password_recovery.wait_for_invisibility_preloader()
         password_recovery.click_user_profile()
         password_recovery.click_password_recovery()
-        assert driver.current_url == data.FORGOT_PASSWORD_PAGE_URL
+        assert password_recovery.get_current_url() == data.FORGOT_PASSWORD_PAGE_URL
 
     @allure.title("Ввод почты и клик по кнопке «Восстановить»")
     @allure.description("Переход на страницу ввода кода из письма при клике на восстановление пароля")
@@ -24,7 +24,7 @@ class TestPasswordRecovery:
         password_recovery.input_user_email()
         password_recovery.click_confirm()
         password_recovery.wait_for_visibility_icon()
-        assert driver.current_url == data.RESET_PASSWORD_PAGE_URL
+        assert password_recovery.get_current_url() == data.RESET_PASSWORD_PAGE_URL
 
     @allure.title("Клик по кнопке показать/скрыть пароль делает поле активным — подсвечивает его")
     @allure.description("Корректное поведение иконки на странице восстановления пароля")
@@ -37,7 +37,7 @@ class TestPasswordRecovery:
         password_recovery.input_user_email()
         password_recovery.click_confirm()
         password_recovery.input_new_password()
-        element_before = password_recovery.get_elements_attribute(Locators.RESTORE_PASS_UNVISIBLE)
+        element_before = password_recovery.get_elements_attribute()
         password_recovery.click_password_icon()
-        element_after = password_recovery.get_elements_attribute(Locators.RESTORE_PASS_UNVISIBLE)
+        element_after = password_recovery.get_elements_attribute()
         assert element_after != element_before

@@ -12,7 +12,7 @@ class TestMainFunctions:
         main_functions.click_order_feed()
         main_functions.click_constructor()
         text = main_functions.get_header_constructor()
-        assert driver.current_url == data.MAIN_PAGE_URL
+        assert main_functions.get_current_url() == data.MAIN_PAGE_URL
         assert text == data.CONSTRUCTOR_TEXT
 
     @allure.title("Переход по клику на «Лента заказов»")
@@ -23,7 +23,7 @@ class TestMainFunctions:
         main_functions.wait_for_invisibility_preloader()
         main_functions.click_order_feed()
         text = main_functions.get_header_order_feed()
-        assert driver.current_url == data.FEED_PAGE_URL
+        assert main_functions.get_current_url() == data.FEED_PAGE_URL
         assert text == data.ORDER_FEED_TEXT
 
     @allure.title("При клике на ингредиент появится всплывающее окно с деталями")
@@ -55,7 +55,7 @@ class TestMainFunctions:
         main_functions = MainFunctionsPage(driver)
         main_functions.open_main_page()
         main_functions.wait_for_invisibility_preloader()
-        main_functions.drag_element_and_drop(Locators.CRATOR_BUN, Locators.TARGET_BASKET)
+        main_functions.drag_element_and_drop()
         total_after = main_functions.get_total_sum()
         assert total_after != 0
 
@@ -67,8 +67,7 @@ class TestMainFunctions:
         main_functions.wait_for_invisibility_preloader()
         main_functions.click_user_profile()
         main_functions.user_login()
-        main_functions.drag_element_and_drop(Locators.CRATOR_BUN, Locators.TARGET_BASKET)
+        main_functions.drag_element_and_drop()
         main_functions.click_create_order()
-        main_functions.wait_for_visibility_container()
         result = main_functions.get_order_details()
         assert result == data.MADE_ORDER_TEXT
